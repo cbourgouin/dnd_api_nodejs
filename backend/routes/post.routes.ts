@@ -1,16 +1,11 @@
 import express from 'express';
+import MysqlRequest from '../function/mysql_request';
+
 const router = express.Router();
+const mysqlRequest = new MysqlRequest();
 
-router.get("/", (req, res) => {
-    res.json({message: 'voici les données'});
-});
-
-router.post("/", (req, res) => {
-    res.json({message: req.body.message});
-});
-
-router.put("/:id", (req, res) => {
-    res.json({messageId: req.params.id});
+router.post("/spells_with_class", (req, res) => {
+    res.json(mysqlRequest.spells_with_class(req.body['class_id']));
 });
 
 module.exports = router

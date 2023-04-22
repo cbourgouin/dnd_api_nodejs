@@ -1,0 +1,1 @@
+SELECT `dnd5_spells`.* FROM `dnd5_spells`, `dnd5_classes`, `dnd5_class_spells` WHERE `dnd5_classes`.`class_name` = 'cleric' AND `dnd5_classes`.`class_id` = `dnd5_class_spells`.`class_id` AND `dnd5_class_spells`.`spell_id` = `dnd5_spells`.`spell_id` ORDER BY `dnd5_spells`.`spell_id`

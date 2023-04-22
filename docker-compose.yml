@@ -2,9 +2,15 @@ version: '3.7'
 services:
       
   api_rest:
-    depends_on: 
-      - mysql
+    container_name: dnd_docker
     build: .
     ports: 
       - 5000:5000
     restart: always
+    x-develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+        - action: rebuild
+          path: package.json

@@ -7,6 +7,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+//definition des routes de données
+app.use("/get", require("./routes/get.routes"));
 app.use("/post", require("./routes/post.routes"));
 
 //lancer le serveur
