@@ -1,2 +1,2 @@
-node_modules
+node_modulesgit config --global user.name "Votre Nom"
 env

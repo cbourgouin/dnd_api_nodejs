@@ -1,10 +1,19 @@
 version: '3.7'
+networks:
+  my-project-network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "172.23.0.2"
+    ipam:
+      config:
+        - subnet: 172.23.0.0/16
+          gateway: 172.23.0.1
+
 services:
-      
   api_rest:
     container_name: dnd_docker
     build: .
-    ports: 
+    ports:
       - 5000:5000
     restart: always
     x-develop:
